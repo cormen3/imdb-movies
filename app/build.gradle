@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        applicationId "hossein.gheisary.imdbfilms"
+
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode generateVersionCode()
+        versionName generateVersionName()
+        multiDexEnabled true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".dev"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            ext.enableCrashlytics = false
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation deps.constraint_layout_android_x
+    implementation deps.support_android_x.app_compat
+    implementation deps.support_android_x.recyclerview
+    implementation deps.support_android_x.cardview
+    implementation deps.support_android_x.design
+    implementation deps.support_android_x.core_ktx
+
+    implementation deps.kotlin.stdlib
+
+    kapt deps.glide.compiler
+    implementation deps.glide.runtime
+
+    kapt deps.room.compiler
+    implementation deps.room.runtime
+    implementation deps.room.testing
+
+    implementation deps.lifecycle.runtime
+    implementation deps.lifecycle.extensions
+    kapt deps.lifecycle.compiler
+
+    implementation deps.paging
+
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.okhttp_logging_interceptor
+    api deps.retrofit.rxAdapter
+
+    kapt deps.dagger.compiler
+    kapt deps.dagger.android_support_compiler
+    implementation deps.dagger.android_support
+
+    implementation deps.rxjava2
+    implementation deps.rx_android
+
+    api deps.gson
+}
+
+private Integer generateVersionCode() {
+    return build_versions.versionMajor * 10000 + build_versions.versionMinor * 100 + build_versions.versionPatch
+}
+
+private String generateVersionName() {
+    return "${build_versions.versionMajor}.${build_versions.versionMinor}.${build_versions.versionPatch}"
+}
+
