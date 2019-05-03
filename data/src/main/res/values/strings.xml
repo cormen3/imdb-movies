@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Data</string>
+    <string name="server_error">مشکل ارتباط با سرور</string>
+    <string name="error_code">کد خطا :</string>
+</resources>

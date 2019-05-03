@@ -73,6 +73,7 @@ dependencies {
     implementation deps.rx_android
 
     api deps.gson
+    implementation project(path: ':data')
 }
 
 private Integer generateVersionCode() {
