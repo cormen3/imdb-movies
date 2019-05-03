@@ -1,6 +1,6 @@
 package hossein.gheisary.data.remote.model
 
-import com.global.data.network.exception.NetworkException
+import hossein.gheisary.data.remote.exception.NetworkException
 
 
 sealed class Outcome<T> {

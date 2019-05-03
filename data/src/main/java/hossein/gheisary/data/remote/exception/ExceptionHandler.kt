@@ -1,7 +1,6 @@
 package hossein.gheisary.data.remote.exception
 
 import android.content.Context
-import com.global.data.network.exception.NetworkException
 import com.google.gson.Gson
 import hossein.gheisary.data.R
 import okhttp3.ResponseBody

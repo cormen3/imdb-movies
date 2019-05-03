@@ -4,7 +4,6 @@ import hossein.gheisary.data.remote.model.FilmDetailsResponse
 import hossein.gheisary.data.remote.model.SearchResult
 import io.reactivex.Single
 
-
 interface ApiRepository {
     companion object {
             val BASE_URL: String get() = "http://www.omdbapi.com/"

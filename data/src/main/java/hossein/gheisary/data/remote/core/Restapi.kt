@@ -5,9 +5,7 @@ import hossein.gheisary.data.remote.model.SearchResult
 import io.reactivex.Single
 import retrofit2.http.*
 
-
 interface  Restapi {
-
     @Headers("Content-Type: application/json")
     @GET(".")
     fun searchFilms(@Query("apiKey") apiKey: String,
